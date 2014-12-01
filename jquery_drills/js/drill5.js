@@ -1,7 +1,73 @@
 $(function(){
 
+    var selector = undefined;
 
+    $('#whoDo').on('input', function () {
+        var temp = $(this).val();
+        switch(temp) {
+            case 'even':
+            selector = $('.shape:even');
+            break;
+            case 'odd':
+            selector = $('.shape:odd');
+            break;
+            case 'square':
+            selector = $('.shape:not(.ball)');
+            break;
+            case 'circle':
+            selector = $('.ball');
+            break;
+            case 'blue':
+            selector = $('div:has(css({background: "blue"}))');
+            break;
+            case 'red':
+            selector = $('div:has(css({background: "red"}))');
+            break;
+            case 'purple':
+            selector = $('div:has(css({background: "purple"}))');
+            break;
+            case 'orange':
+            selector = $('div:has(css({background: "orange"}))');
+            break;
+            case 'yellow':
+            selector = $('div:has(css({background: "yellow"}))');
+            break;
+        }        
 
+    });
+
+    $('#doIt').on('click', function(){
+        var temp2 = $('#whatDo').val();
+        switch (temp2) {
+            case 'blue':
+            selector.css({background: 'blue'});
+            break;
+            case 'red':
+            selector.css({background: 'red'});
+            break;
+            case 'purple':
+            selector.css({background: 'purple'});
+            break;
+            case 'orange':
+            selector.css({background: 'orange'});
+            break;
+            case 'yellow':
+            selector.css({background: 'yellow'});
+            break;
+            case 'square':
+            selector.removeClass('ball');
+            break;
+            case 'circle':
+            selector.addClass('ball');
+            break;
+            case 'fadeout':
+            selector.fadeOut('slow');
+            break;
+            case 'fadein':
+            selector.fadeIn('slow');
+            break;
+        }
+    })
 
     console.log('The dom is ready! (drill 5)');
 
